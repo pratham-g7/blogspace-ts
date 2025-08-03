@@ -1,5 +1,4 @@
-# 📝 BlogSpace – Minimal Personal Blogging Platform
-
+# 📝 BlogSpace-ts – A rewrite of BlogSpace using TypeScript
 **BlogSpace** is a lightweight web app that lets users create and publish simple blog posts with live character limits — ideal for quick thoughts, journal entries, or microblogs.
 
 ---
