@@ -5,7 +5,7 @@
 
 ## 🔧 Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript + jQuery  
+- **Frontend:** HTML, CSS, TypeScript, jQuery  
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB + Mongoose  
 
@@ -35,10 +35,10 @@ blogspace/
 │   └── index.ejs         # Home page and post list
 │
 ├── db/                   # Database connection and schema
-│   ├── db.js             # MongoDB connection logic
-│   └── schema.js         # Blog post Mongoose schema
+│   ├── db.ts             # MongoDB connection logic
+│   └── schema.ts         # Blog post Mongoose schema
 │
-├── index.js              # Main Express server
+├── index.ts              # Main Express server
 ├── package.json
 └── README.md
 </pre>
