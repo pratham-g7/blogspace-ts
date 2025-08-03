@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace</title>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <% if (!locals.showForm) { %>
+            <form class="userInput" onsubmit="setUsername(event)">
+        <div class="username-div">
+        <input class="postName" id="userBox" maxlength="10" type="text" name="setName" placeholder="Username: " required>
+        <span class="char-counter" id="username-counter">0/10</span>
+        <button class="postBtn" id="regBtn" type="submit">Set Profile</button>
+        </div>
+    </form>
+            <% } %>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        <h2 class="regMsg page_text_s"></h2>
+        </nav>
+        <h1 class="typing" id="pageName">BlogSpace</h1>  
+    </header>
+    <main>
+        <% if (locals.postList) { %>
+        <h2 class="page_text">Latest Posts</h2>
+        <% if (postList.length === 0) { %>
+            <h2 class="noPosts page_text">No Posts Yet! Try making one!</h2>
+            <% } %>
+        <div id="postbox-div">
+        <ul id="postlist-ul">
+            <% postList.forEach(post => { %>
+                <% if (!["ygwhaojme", "zue0gf938", "kcn2160j0"].includes(post.id)) { %>
+                <li>
+                    <div class="post_comment_div">
+                    <div class="post-box">
+                        <% if (locals.showDel) { %>
+                        <button class="postDel" data-id="<%= post.id %>">🗑️</button>
+                        <% } %>
+      <a href="/posts/<%= post.id %>" class="post-title"><%= post.name %></a>
+      <p class="post-content"><%= post.content %></p>
+      <p class="post-footer page_text">- <%= post.author %></p>
+    </div>
+    <% if (locals.showDel) { %>
+        <div class="commentDiv">
+            <button class="addCmnt">📝</button>
+                <div class="commentForm-div hidden">
+                    <form action="/posts/<%= post.id %>/comment" method="POST" class="commentForm">
+                        <input type="hidden" name="username" id="usernameInput">
+                        <div class="cmntAccept">
+                        <textarea maxlength="26" placeholder="Comment:" type="text" class="commentBox" name="comment" required></textarea>
+                        <button class="sendCmnt" type="submit">Comment</button>
+                        </div>
+                    </form> 
+                </div>
+                <span>Comment Thread</span>
+        <ul>
+            <% post.comments.forEach(comment => { %>
+            <li class="eachCmnt">
+                <p><%= comment.author %>: <%= comment.text %></p>
+            </li>
+            <% }) %>
+        </ul>
+        </div>
+         <% } %>
+         </div>
+                </li>
+            <% }}) %>
+        </ul>
+        </div>
+        <% } else {%>
+            <div id="main-div">
+            <div id="main_image">
+                <div id="main_info"><span>BlogSpace is a simple, personal blogging site built for writing and sharing posts without distractions. It lets you create, view, and manage content in a straightforward layout. Whether you're jotting down ideas, sharing updates, or posting regularly, BlogSpace keeps things organized and easy to use.</span></div>
+            </div>
+        </div>
+            <% } %>
+            <div id="createPost">
+        <h2 class="addPostBtn">+</h2>
+        <div id="newPost" class="hidden">
+        <form action="/posts/new" method="post">
+            <input type="hidden" name="username" id="usernameInput">
+            <h2 class="page_text newPostTxt">Create a New Post</h2>
+            <div id="inputBoxes">
+                <div class="title_wrapper">
+            <label for="postName"></label>
+            <input maxlength="30" placeholder="Post Title:" type="text" class="postName" name="name" required>
+            <span class="char-counter" id="title-counter">0/30</span>
+            </div>
+            <br>
+            <div class="content_wrapper">
+            <label for="postContent"></label>
+            <textarea maxlength="500" placeholder="Post Body:" id="postContent" name="content" required></textarea>
+            <span class="char-counter" id="content-counter">0/500</span>
+            </div>
+        </div>
+            <br>
+            <button class="postBtn" type="submit">Create a new post!</button>
+        </form>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 BlogSpace. All rights reserved.</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

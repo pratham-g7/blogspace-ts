@@ -1,0 +1,523 @@
+html, body {
+margin: 1.5rem 0 0 0;
+padding: 0;   
+display: flex;
+flex-direction: column;
+background-color: rgb(250, 173, 186);
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#main-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main_info {
+    position: absolute;
+    top: 12.5%;
+    font-family: "Delius", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* ; rgb(254, 241, 244, 0.6)*/
+    border-radius: 12px;
+    width: 35%;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+#main_image {
+    position: relative;
+    background-image: url('assets/main_image.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 12px 30px;
+    background-color: #fff5eb ; /* #4CAF50 */
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 3rem;
+}
+
+nav ul li a {
+    color: #5a3e36;
+    font-family: "Delius", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.5rem;
+    }
+
+nav ul li a:hover {
+    text-shadow: 0 0 5px #f78da7, 0 0 10px #f78da7, 0 0 15px #f78da7;
+}
+
+#pageName {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 3rem 0;
+    color: #7d420a;
+    font-family: "DynaPuff", system-ui;
+}
+
+.typing::after {
+    content: '|';
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    animation: blink 0.7s steps(1) infinite;
+    color: black;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#postbox-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+#postlist-ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1300px; /* 3 * 400px + 2 * 2rem gap */
+}
+
+.post-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 5px dashed #ffb6c1;
+    /* border: 1px solid #ccc; */
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+    min-width: 450px;
+    min-height: 225px;
+    position: relative;
+}
+
+.post-box:hover {
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.post-title:hover {
+    text-decoration: underline;
+}
+
+.post-content {
+    font-size: 1rem;
+    color: #333;
+}
+
+.page_text {
+    font-family: "Delius", sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    position: relative;
+    bottom: 2rem;
+}
+
+.page_text_s {
+    font-family: "Delius", sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.userInput {
+    display: none;
+    position: fixed;
+    left: -450px;
+}   
+
+.regMsg {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    min-width: 150px;
+    left: -450px;
+}
+
+.post-title, .post-content {
+    font-family: "Delius", sans-serif;
+}
+
+#createPost {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ff69b4; /* hot pink or any color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2rem;
+}   
+
+.post-footer {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#newPost.hidden {
+    display: none;
+
+}
+
+#newPost {
+    position: fixed;
+    bottom: 80px;
+    right: 75px;
+    width: 300px;
+    background-color: pink;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#inputBoxes {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.postName {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#postContent {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: "Delius", sans-serif;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+#userBox{
+    width: 200px;
+    margin: 0;
+}
+
+.newPostTxt {
+    margin-bottom: 0;
+}
+
+.postBtn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+}   
+
+footer {
+    border-radius: 12px;
+    width: 20rem;
+    text-align: center;
+    background-color: #ff69b4;
+    color: #333;
+    font-family: "Delius", sans-serif;
+    margin: 5rem auto 0 auto;
+}
+
+.title_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.content_wrapper {
+    position: relative;
+    width: inherit;
+    max-width: inherit;
+}
+
+.username-div {
+    position: relative;
+    width: 100%;
+    display: flex;  
+    line-height: 1;      
+    }
+
+
+#username-counter {
+    position: absolute;
+    top: 0;
+    right: 110px;
+    padding: 8px;
+    pointer-events: none;
+    background: transparent;
+    font-family: "Delius", sans-serif;
+    font-size: 0.85rem;
+    color: grey;
+    z-index: 2;
+}
+
+#title-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    padding: 8px;
+    pointer-events: none; 
+    background: transparent;
+    font-family: "Delius", sans-serif;
+    font-size: 0.85rem;
+    color: grey;
+    z-index: 2;
+}
+
+#content-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    padding: 8px;
+    pointer-events: none;
+    background: transparent;
+    font-family: "Delius", sans-serif;
+    font-size: 0.85rem;
+    color: grey;
+    z-index: 2;
+}
+
+.postDel {
+    all: unset;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #ec5463;
+}
+
+.comments {
+    all: unset;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #ec5463;
+    font-family: "Delius", sans-serif;
+}
+
+.post_comment_div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.commentDiv {
+    padding-top: 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-family: "Delius", sans-serif;
+    background-color: white;
+    position: relative;
+    min-height: 140px;
+}
+
+.commentDiv span {
+    margin-left: 1rem;
+}
+
+.addCmnt {
+    all: unset;
+    background-color: #ec5463;
+    border-radius: 12px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 6px;
+}
+
+.commentForm-div.hidden {
+    display: none;
+    position: relative;
+}
+
+.commentForm {
+    position: absolute;
+    right: -325px;
+}
+
+.cmntAccept {
+    display: flex;
+}
+
+.commentBox {
+    min-width: 225px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: "Delius", sans-serif;
+}
+
+.sendCmnt {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+}
+
+.eachCmnt {
+    background-color: #fff0f5; /* soft pink */
+    border: 2px dashed #ffb6c1; /* playful dashed border */
+    max-width: 350px;
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 16px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.08);
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+    color: #4b2c2c;
+    position: relative;
+}
+
+.eachCmnt p {
+    margin: 0;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+
+    .userInput {
+        left: 0;
+        bottom: -80vh;
+    }
+    .regMsg {
+        left: 225px;
+        bottom: -17.5vh;
+        width: 100px;
+    }
+
+    #main_info {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #postbox-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #postlist-ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-box {
+        width: 325px;
+        min-width: unset;
+        max-width: 450px;
+        min-height: 225px; 
+        margin: 0 auto;
+
+    }
+
+    #createPost {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    #newPost {
+        width: 80%;
+        right: 5%;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+    
+}
