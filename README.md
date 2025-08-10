@@ -6,7 +6,7 @@
 ## 🔧 Tech Stack
 
 - **Frontend:** HTML, CSS, TypeScript, jQuery  
-- **Backend:** Node.js, Express.js  
+- **Backend:** TypeScript, Node.js, Express.js  
 - **Database:** MongoDB + Mongoose  
 
 ---
